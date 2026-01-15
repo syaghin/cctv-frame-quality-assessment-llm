@@ -16,7 +16,6 @@ from transformers import Qwen3VLForConditionalGeneration, AutoProcessor
 BASE_DIR = Path(__file__).resolve().parent.parent  
 INPUT_DIR = BASE_DIR / "data" / "sample_images"
 PRED_OUTPUT_CSV = BASE_DIR / "data" / "sample_predictions.csv"
-SCRAP_ISSUES_CSV = BASE_DIR / "data" / "scrap_issues_sample.csv"
 
 # Tuning
 REAL_MODE = os.getenv("REAL_MODE", "0") == "1"  # set to "1" to load Qwen model
@@ -159,7 +158,7 @@ def run_predictor():
                 except Exception:
                     pass
         else:
-            # MOCK outputs: simple deterministic sample (you can customize)
+            # MOCK outputs: simple deterministic sample
             outputs = []
             for img in images:
                 if img is None:
