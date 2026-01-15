@@ -1,9 +1,4 @@
 #!/usr/bin/env python3
-"""
-Default: MOCK mode (no heavy model load) for easy demo on GitHub.
-To run with real model inference, set REAL_MODE=1 in the environment.
-"""
-
 import os
 import csv
 import time
