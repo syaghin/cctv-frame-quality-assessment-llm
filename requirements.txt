@@ -1,0 +1,12 @@
+fastapi
+Jinja2
+opencv-python
+pillow
+psycopg2-binary
+torch
+torchvision
+tqdm
+transformers
+uvicorn
+
+
