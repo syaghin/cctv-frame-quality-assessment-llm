@@ -14,7 +14,7 @@ It classifies frames into GOOD, NOT GOOD, or GLITCH based on visual usability.
 CCTV Frame → LLM Predictor → CSV → Web UI
 
 ## Sample Data
-All sample images and CSV files are sanitized and do not represent real locations or live CCTV feeds.
+All sample images and CSV files are sanitized and do not represent live CCTV feeds.
 
 ## Tech Stack
 - Python
@@ -27,6 +27,3 @@ All sample images and CSV files are sanitized and do not represent real location
 - Flexible rules without retraining
 - Human-readable explanations
 - Easier extension for new quality criteria
-
-## Disclaimer
-This repository contains no production credentials or internal datasets.
