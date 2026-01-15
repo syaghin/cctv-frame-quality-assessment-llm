@@ -1,0 +1,8 @@
+cctv_name,file,status,elapsed_time
+sample_cam01,data/sample_images/sample_cam01.jpg,glitch,5.27
+sample_cam02,data/sample_images/sample_cam02.jpg,ok,1.96
+sample_cam03,data/sample_images/sample_cam03.jpg,ok,2.25
+sample_cam04,data/sample_images/sample_cam04.jpg,ok,0.98
+sample_cam05,data/sample_images/sample_cam05.jpg,ok,3.27
+sample_cam06,data/sample_images/sample_cam06.jpg,ok,2.66
+sample_cam07,,open_failed,9.27
