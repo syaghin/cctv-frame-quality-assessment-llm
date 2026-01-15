@@ -1,7 +1,7 @@
 file,decision,reason,status
-sample_cam01.jpg,GLITCH,Severe vertical banding and striping artifacts make the image unusable for analytics. ,OK
+sample_cam01.jpg,GLITCH,Severe vertical banding and striping artifacts make the image unusable for analytics,OK
 sample_cam02.jpg,GOOD,Clear field of view with sufficient sharpness and lighting for analytics,OK
 sample_cam03.jpg,GOOD,Image is in focus with no major obstruction or noise affecting detection,OK
 sample_cam04.jpg,GOOD,Stable exposure and color consistency suitable for object counting,OK
-sample_cam05.jpg,NOT GOOD,Large green leaves in the foreground significantly obstruct the view, making it difficult to clearly identify and count vehicles, people, or PKLs in the scene. ,OK
-sample_cam06.jpg,NOT GOOD,The frame is heavily obstructed by numerous cables and a rusty pole in the foreground, which significantly blocks the view of the road and surrounding area, making it difficult to clearly count vehicles, people, or PKL for analytics. ,OK
+sample_cam05.jpg,NOT GOOD,Large green leaves in the foreground significantly obstruct the view making it difficult to clearly identify and count vehicles or people in the scene,OK
+sample_cam06.jpg,NOT GOOD,The frame is heavily obstructed by numerous cables and a rusty pole in the foreground which significantly blocks the view of the road and surrounding area,OK
