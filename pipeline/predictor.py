@@ -10,10 +10,9 @@ from tqdm import tqdm
 from PIL import Image
 import torch
 
-# NOTE: we keep the exact PROMPT_TEXT from your original script
 from transformers import Qwen3VLForConditionalGeneration, AutoProcessor
 
-# ---------------- CONFIG (repo-relative) ----------------
+# ---------------- CONFIG ----------------
 BASE_DIR = Path(__file__).resolve().parent.parent  
 INPUT_DIR = BASE_DIR / "data" / "sample_images"
 PRED_OUTPUT_CSV = BASE_DIR / "data" / "sample_predictions.csv"
