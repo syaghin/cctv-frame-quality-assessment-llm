@@ -11,7 +11,7 @@ It classifies frames into GOOD, NOT GOOD, or GLITCH based on visual usability.
 - Sanitized sample dataset for public demonstration
 
 ## Architecture
-Scraper → Frame Storage → LLM Predictor → CSV → Web UI
+CCTV Frame → LLM Predictor → CSV → Web UI
 
 ## Sample Data
 All sample images and CSV files are sanitized and do not represent real locations or live CCTV feeds.
