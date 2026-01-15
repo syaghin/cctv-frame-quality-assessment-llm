@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CCTV Frame Quality Review</title>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f8fafc;
+      margin: 0;
+      padding: 24px;
+    }
+
+    /* ===== HEADER ===== */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #555;
+      margin-top: 6px;
+    }
+
+    .right {
+      text-align: right;
+    }
+
+    .filters {
+      margin-bottom: 8px;
+    }
+
+    .filter-btn {
+      border: 1px solid #ccc;
+      background: white;
+      padding: 6px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 13px;
+      margin-left: 6px;
+    }
+
+    .filter-btn.active {
+      background: #2563eb;
+      color: white;
+      border-color: #2563eb;
+    }
+
+    .update {
+      font-size: 12px;
+      color: #666;
+    }
+
+    /* ===== GRID ===== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .content {
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-grow: 1;
+    }
+
+    .nama {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .reason {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    .badge {
+      align-self: flex-start;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .badge.not-good {
+      background: #d9534f;
+    }
+
+    .badge.glitch {
+      background: #f0ad4e;
+      color: #333;
+    }
+
+    .open {
+      margin-top: auto;
+      font-size: 12px;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .open:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="topbar">
+    <div class="left">
+      <h2>📷 CCTV Frame Quality Review</h2>
+      <div class="subtitle">
+        Automated detection of frames unsuitable for analytics
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="NOT GOOD">Not Good</button>
+        <button class="filter-btn" data-filter="GLITCH">Glitch</button>
+      </div>
+      <div class="update">
+        Last update: <b>{{ last_update }}</b>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== GRID ===== -->
+  <div class="grid">
+
+    {% for item in items %}
+    <div class="card" data-status="{{ item.decision }}">
+      <img src="/api/gambar/{{ item.filename }}" alt="frame">
+
+      <div class="content">
+        <span class="badge {{ 'glitch' if item.decision == 'GLITCH' else 'not-good' }}">
+          {{ item.decision }}
+        </span>
+
+        <div class="nama">{{ item.nama }}</div>
+
+        <div class="reason">
+          {{ item.reason }}
+        </div>
+
+        <a class="open" href="/api/gambar/{{ item.filename }}" target="_blank">
+          Open Image
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+
+  <!-- ===== FILTER SCRIPT ===== -->
+  <script>
+    const buttons = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".card");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const filter = btn.dataset.filter;
+
+        cards.forEach(card => {
+          const status = card.dataset.status;
+
+          if (filter === "all" || status === filter) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
