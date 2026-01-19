@@ -4,14 +4,15 @@ This project evaluates CCTV frame quality for vision analytics using a multimoda
 It classifies frames into GOOD, NOT GOOD, or GLITCH based on visual usability.
 
 ## Features
-- RTSP frame scraping with retry & timeout handling
+- Folder-based CCTV frame evaluation
 - Vision-Language Model (Qwen3-VL) inference
-- Quality classification with reasoning
+- Quality classification with human-readable reasoning
 - Web-based review UI (FastAPI + Jinja2)
 - Sanitized sample dataset for public demonstration
+- Mock mode for lightweight execution without loading the full model
 
 ## Architecture
-CCTV Frame → LLM Predictor → CSV → Web UI
+Image Folder → LLM Predictor → CSV → Web UI
 
 ## Sample Data
 All sample images and CSV files are sanitized and do not represent live CCTV feeds.
